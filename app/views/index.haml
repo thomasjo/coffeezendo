@@ -3,8 +3,14 @@
     %a{ href: '/' } CoffeeZendo
 
 %section
-  %a{ href: '#' } This is a link
+  :markdown
+    # Header
+    This is where descriptions will end up.
 
-  .exercise= "square = (x) -> {BLANK} * {BLANK}\ncube   = (x) -> square(x) * x".gsub(/\n/, '<br/>').gsub(/\s/, '&nbsp;')
+    Lorem ipsum dolar sit amet...
+
+  %article.exercise
+    %aside Unsolved
+    %section= "square = (x) -> {BLANK} * {BLANK}\ncube   = (x) -> square(x) * x".gsub(/\n/, '<br/>').gsub(/\s/, '&nbsp;')
  
-  %script{ src: 'javascripts/exercise.js' }
+%script{ src: 'javascripts/exercise.js' }
