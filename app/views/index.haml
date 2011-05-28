@@ -1,0 +1,10 @@
+%header
+  %h1
+    %a{ href: '/' } CoffeeZendo
+
+%section
+  %a{ href: '#' } This is a link
+
+  .exercise= "square = (x) -> {BLANK} * {BLANK}\ncube   = (x) -> square(x) * x".gsub(/\n/, '<br/>').gsub(/\s/, '&nbsp;')
+ 
+  %script{ src: 'javascripts/exercise.js' }
