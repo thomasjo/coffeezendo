@@ -1,8 +1,10 @@
 $ = jQuery
-
 $ ->
   ($ "body").attr("spellcheck", "false")
-  code = ($ ".exercise").html()
-  inputCode = code.replace(/\{BLANK\}/g, "<div contenteditable=\"true\">BLANK</div>")
-  ($ ".exercise").html(inputCode)
+  ($ ".exercise").each ->
+    $this = ($ this)
+    code = $this.find("section").html()
+    $this.data("code", code)
+    inputCode = code.replace(/\{\?\}/g, "<div contenteditable=\"true\">?</div>")
+    $this.find("section").html(inputCode)
 

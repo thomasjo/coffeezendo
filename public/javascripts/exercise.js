@@ -2,10 +2,14 @@
   var $;
   $ = jQuery;
   $(function() {
-    var code, inputCode;
     ($("body")).attr("spellcheck", "false");
-    code = ($(".exercise")).html();
-    inputCode = code.replace(/\{BLANK\}/g, "<div contenteditable=\"true\">BLANK</div>");
-    return ($(".exercise")).html(inputCode);
+    return ($(".exercise")).each(function() {
+      var $this, code, inputCode;
+      $this = $(this);
+      code = $this.find("section").html();
+      $this.data("code", code);
+      inputCode = code.replace(/\{\?\}/g, "<div contenteditable=\"true\">?</div>");
+      return $this.find("section").html(inputCode);
+    });
   });
 }).call(this);
