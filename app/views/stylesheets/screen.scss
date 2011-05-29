@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-  font-size: 59px;
+  font-size: 60px;
   color: #777;
 }
 
@@ -37,7 +37,7 @@ body > section {
   h1 {
     margin: 24px 0 10px;
     font-size: 36px;
-    color: #8959A8;
+    color: #85A;
   }
 
   p {
@@ -62,13 +62,10 @@ body > section {
       div[contenteditable] {
         display: inline-block;
         padding: 0 4px;
-        background: #EEE;
-        color: #8959A8;
+        background: #A7C;
+        color: #FFF;
 
         &:hover, &:focus {
-          //background: #DDD;
-          margin: -1px;
-          border: 1px solid #DDD;
           outline: none;
         }
       }
