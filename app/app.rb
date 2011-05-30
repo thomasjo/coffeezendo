@@ -22,9 +22,12 @@ get '/stylesheets/:name-:digest.css' do
   scss "stylesheets/#{params[:name]}".to_sym
 end
 
+# TODO: Extend the (very) simplistic asset compilation above to cover CoffeeScript.
+
 get '/exercise/:number.json' do
   content_type 'application/json'
 
+  # TODO: Refactor this into a separate module/class.
   file = File.read(File.join('app', 'exercises', "#{params[:number]}.coffee"))
   meta, body = file.match(/^(#\s*?\n.*#\s*?\n)\n(.*)$/m)[1..2]
   meta.gsub!(/(#\ ?)/, '')
@@ -32,10 +35,6 @@ get '/exercise/:number.json' do
   description = Markdown.new(description).to_html
 
   JSON.generate({ title: title, description: description, code: body.strip})
-end
-
-get '/exercise/:number' do
-  haml :index
 end
 
 get '/' do
