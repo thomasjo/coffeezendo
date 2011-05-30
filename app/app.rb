@@ -4,6 +4,7 @@ require 'haml'
 require 'sass'
 require 'active_support/core_ext'
 require 'json'
+require 'rdiscount'
 require_relative 'helpers'
 
 configure do
@@ -23,18 +24,14 @@ end
 
 get '/exercise/:number.json' do
   content_type 'application/json'
-#  <<-CODE.strip_heredoc
-#    {
-#      "title": "Exercise 01",
-#      "description": "This is the description",
-#      "code": "square = (x) -> {?} * {?}\\ncube   = (x) -> square(x) * x"
-#    }
-#  CODE
 
   file = File.read(File.join('app', 'exercises', "#{params[:number]}.coffee"))
-  meta, body = file.match(/^#\n(.*)#\n\n(.*)$/m)[1..2]
+  meta, body = file.match(/^(#\s*?\n.*#\s*?\n)\n(.*)$/m)[1..2]
+  meta.gsub!(/(#\ ?)/, '')
+  title, description = meta.match(/(.*)\n---\n(.*)\n/m)[1..2]
+  description = Markdown.new(description).to_html
 
-  JSON.generate({ code: body.strip})
+  JSON.generate({ title: title, description: description, code: body.strip})
 end
 
 get '/exercise/:number' do

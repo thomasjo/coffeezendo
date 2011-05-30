@@ -3,14 +3,16 @@
     %a{ href: '/' } CoffeeZendo
 
 %section
-  :markdown
-    # Header
-    This is where descriptions will end up.
-
-    Lorem ipsum dolar sit amet...
-
-  %article.exercise
-    %aside Unsolved
-    %section= "square = (x) -> {?} * {?}\ncube   = (x) -> square(x) * x".gsub(/\n/, '<br/>').gsub(/\s/, '&nbsp;')
 
 %script{ src: '/javascripts/exercise.js' }
+
+%script{ id: "exercise-tmpl", type: 'text/x-jquery-tmpl' }
+  :plain
+    <h1>${title}</h1>
+    <section class="description">
+      {{html description}}
+    </section>
+    <section class="exercise">
+      <aside>Unsolved</aside>
+      <section>${code}</section>
+    </section>
