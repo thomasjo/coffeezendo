@@ -14,22 +14,24 @@ body {
   color: #444;
 }
 
-h1 {
-  font-size: 60px;
-  color: #777;
-}
-
 a {
   color: #4271AE;
 }
 
 body > header {
-  margin-bottom: 24px;
+  margin-bottom: 38px;
   border-bottom: 3px solid #EEE;
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  h1 {
+    font-family: 'Lobster', Helvetica, Arial, sans-serif;
+    font-size: 60px;
+    line-height: 1;
+    color: #888;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 }
 
@@ -45,17 +47,17 @@ body > section {
   }
 
   .exercise {
-    margin: 20px 0;
+    margin: 20px 0 30px;
 
     aside {
-      padding: 10px;
-      background: #D40;
-      color: #FFF;
+      padding: 10px 0;
+      border-bottom: 3px solid #D40;
+      color: #D40;
     }
 
     section {
       padding: 10px;
-      border-bottom: 3px solid #D40;
+      background: #EEE;
       font-family: monospace, sans-serif;
       line-height: 1.314;
 
