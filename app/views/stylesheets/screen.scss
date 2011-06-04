@@ -9,7 +9,7 @@ body {
   width: 960px;
   margin: 0 auto;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.231;
   color: #444;
 }
@@ -20,13 +20,13 @@ a {
 
 body > header {
   margin-bottom: 38px;
-  border-bottom: 3px solid #EEE;
+  border-bottom: 3px solid #DDD;
 
   h1 {
     font-family: 'Lobster', Helvetica, Arial, sans-serif;
     font-size: 60px;
     line-height: 1;
-    color: #888;
+    color: #666;
 
     a {
       color: inherit;
@@ -47,10 +47,10 @@ body > section {
   }
 
   .exercise {
-    margin: 20px 0 30px;
+    margin: 30px 0;
 
     aside {
-      padding: 10px 0;
+      padding-bottom: 6px;
       border-bottom: 3px solid #D40;
       color: #D40;
     }
@@ -64,12 +64,23 @@ body > section {
       div[contenteditable] {
         display: inline-block;
         padding: 0 4px;
-        background: #A7C;
+        background: #D40;
         color: #FFF;
 
         &:hover, &:focus {
           outline: none;
         }
+      }
+    }
+
+    &.solved {
+      aside {
+        border-color: #492;
+        color: #492;
+      }
+
+      div[contenteditable] {
+        background: #492;
       }
     }
   }
